@@ -4,7 +4,7 @@
 /web_app/node_modules
 /.pnp
 .pnp.js
-web_app/.env
+/web_app/.env
 .env
 # testing
 /coverage
