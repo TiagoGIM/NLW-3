@@ -100,8 +100,19 @@ Usaremos o sqlite dentro do servidor, um arquivo "simulado" não é relmente um 
 
 Existem três manineira de acessar o db pelo node:
 - Drive nativo: usando as querys identicas a dentro de um db. 
-```
+- Query bulder :  Construtor de query em sintaxe js.
+- ORM : Maior nivel de abstração, constroindo classes para cada tabelas (schemas).
 
+## Configurando o db
+Crie uma pasta dabase e dentro dela dois arquivos, `database.sqlite` e `conection.ts`
 ```
-- Query bulder : 
-- ORM :
+$ mkdir database
+$ touch database/database.sqlite
+$ touch database/connection.ts
+```
+*Não escreva NADA no database.sqlite !*
+
+Crie um arquivo chamado ormconfig.json
+```
+$ touch ormconfig.json
+```

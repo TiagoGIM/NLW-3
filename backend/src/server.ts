@@ -1,5 +1,8 @@
 import express from 'express';
 
+import './database/connection';
+
+
 const app = express();
 //habilitando a leitura de json no request
 app.use(express.json());
