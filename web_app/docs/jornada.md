@@ -1,3 +1,4 @@
+# Dia 1
 Primeiro passo preparar o ambiente:
 
 Nodejs

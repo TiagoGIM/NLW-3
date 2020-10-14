@@ -1,4 +1,4 @@
-#Dia 2 - Backend
+# Dia 2 - Backend
 
 ## Primeiros passos
 Criar o diretorio raiz e iniciar o yarn project ou npm project.
@@ -116,3 +116,48 @@ Crie um arquivo chamado ormconfig.json
 ```
 $ touch ormconfig.json
 ```
+Atualizar os files server e preenchcer devidamente os arquivos de connexão e config.
+
+## migrations
+
+dentro da pasta database criar uma nova pasta migrations.
+```
+$ cd src/database
+$ mkdir migrations
+```
+Agora configure o typeorm para exucuta-lo com typescript, adcionar o script no `package.json`:
+```
+"typeorm" : "ts-node-dev ./node_modules/typeorm/cli.js"
+```
+Salve o file e execute 
+```
+$ yarn typeorm
+```
+Um error vai ser gerado porém se o "help" estiver com comandos cli.js então esta tudo ok.
+
+
+### Criando uma migration:
+```
+$ yarn typeorm migration:create -n creat_orphanages
+```
+Irá ser criado um arquivo .ts na pasta de migrations, nele existem duas funções up() e down().
+- up() irá fazer alterações no db.   "do something"
+- down() desfaz a operação.   "un do something"
+
+Schema na migration criado, agora é rodar o comando "run" para efetivar a tabela no db:
+```
+$ yarn typeorm migration:run
+```
+Para visualizar a tabela, usamos o app [Beekeeper Studio](https://github.com/beekeeper-studio/beekeeper-studio/releases).
+
+No inicio nao funcionou porque cadastrei o db errado.  =D
+
+### Criação dos Models
+
+Um model é a representação da tabela como uma classe dentro do app.
+```
+$ cd src
+$ mkdir models
+$touch Orphanage.ts
+```
+Criar o arquivo como uma classe [veja o arquivo]
