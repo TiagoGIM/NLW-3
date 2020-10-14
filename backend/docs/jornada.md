@@ -138,7 +138,7 @@ Um error vai ser gerado porém se o "help" estiver com comandos cli.js então es
 
 ### Criando uma migration:
 ```
-$ yarn typeorm migration:create -n creat_orphanages
+$ yarn typeorm migration:create -n creat_orphanages2
 ```
 Irá ser criado um arquivo .ts na pasta de migrations, nele existem duas funções up() e down().
 - up() irá fazer alterações no db.   "do something"
@@ -161,3 +161,55 @@ $ mkdir models
 $touch Orphanage.ts
 ```
 Criar o arquivo como uma classe [veja o arquivo]
+
+Durante a criação do modelo faltou uma feature da tabela, então desfizemos a migration, atualizamos o file da migration com a nova feature e rodamos de novo, os comando:
+```
+$ yarn typeorm migration:revert
+$ yarn typeorm migration:run
+```
+Comigo ão funcionou, ao tentar inicar a nova migration ele de erro, dropei na mão.
+
+Decidi refazer todo o processo criando uma nova migration e deletando a antiga. ai rolou os comandos.
+
+Após finalizar o model com as variaveis primitivas do javascript, é preciso habilitar a integração dele com o typeorm.
+Editar algumas variáveis como false `strictPropertyInitialization: false ,"experimentalDecorators": true e "emitDecoratorMetadata": true ` 
+no file ` tsconfig.json`.
+
+### Decorators
+
+Usamos o decorador @Entity,@Column e @Primarygenerate para associar nossa classe ao schema da tabela
+Veja o arquivo em models.
+
+## De volta às Rotas.
+
+### Post (cadastrando orfanatos)
+
+Criamos a rota /orfanages com o metodo post e nela vamos permitir que a requisição escreva no banco.
+
+- descrevemos todos os params que chegou no body para usar no repositorio "orphanage".
+- usamos o pattern "getRepository" do tyeporm, que é quem lida com o db.
+- editamos o `connection.t` para ele entender nosso model.(passamos a rota da entities)
+- importamos e instanciamos o model como um diretório, para assim ele ter os metodos do db.
+- criamos o repositorio "orphanage" e salvamos no db(usamos async await).
+
+Post via terminal:
+```
+curl -X POST -H 'Content-Type: application/json' -d '{
+"name":"lar da vovozinha 4",
+"opening_hours": "8",
+"latitude":"158,14",
+"longetude":"135,09",
+"about":"tem uns idosos",
+"instructions":"pode vir visitar",
+"open_weekends":"false"}' localhost:3333/orphanages
+```
+tudo certo =D
+
+## Padrão MVC
+
+Model - representação da tabela no banco
+Views - como as coisas sao disponibilizadas
+Controles - a logica das rotas
+
+Criei o file rotas e a pasta com os controllers para conter a logica das rotas criadas até então.
+Para cada controller file é necessário importar os metodos request e response do express.

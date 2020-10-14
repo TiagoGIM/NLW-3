@@ -1,6 +1,6 @@
-import {Column, MigrationInterface, QueryRunner, Table} from "typeorm";
+import {MigrationInterface, QueryRunner,Table} from "typeorm";
 
-export class creatOrphanages1602647121498 implements MigrationInterface {
+export class creatOrphanages21602690308593 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     queryRunner.createTable(new Table({
@@ -38,7 +38,7 @@ export class creatOrphanages1602647121498 implements MigrationInterface {
           type:'text'
         },
         {
-          name:'isntructions',
+          name:'instructions',
           type:'text'
         },
         {
@@ -47,9 +47,9 @@ export class creatOrphanages1602647121498 implements MigrationInterface {
           default:false
         }
       ],
-    }))
+    }));    
   }
   public async down(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.dropTable('orphanages');
+    await queryRunner.dropTable("orphanages");
   }
 }

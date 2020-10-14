@@ -24,3 +24,5 @@ Desenvolvimento do Servidor usando Nodejs.
  - parametros
  - metodos HTPP
  - banco de dados e migrations
+ - Decorators
+ - MVC
