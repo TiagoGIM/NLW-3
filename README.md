@@ -23,3 +23,4 @@ Desenvolvimento do Servidor usando Nodejs.
  - rotas
  - parametros
  - metodos HTPP
+ - banco de dados e migrations
