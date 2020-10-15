@@ -1,23 +1,30 @@
-import Orphanage from '../models/Orphanage';
 import { getRepository } from 'typeorm';
 import {Request,Response} from 'express'
+
+import Orphanage from '../models/Orphanage';
+import orphanageView from '../views/orphanages_views';
 
 export default{
 
   async index(req: Request,resp:Response){
     const orphanageRepository = getRepository(Orphanage);
-    const orphanages = await orphanageRepository.find();
+    const orphanages = await orphanageRepository.find({
+      relations:['images']
+    });
     console.log(orphanages);
-    return resp.json({lista:orphanages});
+    return resp.json(orphanageView.renderMany(orphanages));
   },
 
   async show(req: Request,resp:Response){
     const { id } = req.params;
     const orphanageRepository = getRepository(Orphanage);
     console.log(id);
-    const orphanage = await orphanageRepository.findOneOrFail(id);
+    const orphanage = await orphanageRepository.findOneOrFail(id,{
+      relations:['images']
+
+    });
     console.log(orphanage);
-    return resp.json({lista:orphanage});
+    return resp.json(orphanageView.render(orphanage));
   },
 
   async create(req:Request, resp:Response) {
@@ -54,6 +61,6 @@ export default{
     //como escrever no banco demora, então deixamos em await
       await orphanageRepository.save(orphanage);
     // ao criar alto o retorno 201 indica isso ao client
-    return resp.status(201).json({msg :'create home'});     
+    return resp.status(201).json(orphanage);     
   }
 };

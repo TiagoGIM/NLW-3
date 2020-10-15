@@ -268,3 +268,13 @@ Criamos as relações entre os dois modelos usando os decoradores
 E colocamos as infos la dentro.
 
 Editamos o controler conforme o video e também não teve nenhum problema.
+
+## Views
+A view serve para retorna ao client apenas o que ela renderizar, estiliza o json.
+criamos a view de orfanato com dois tipos de render:
+-render()  para rederizar os orfanatos indivitualmente.
+-renderMany() que irá retorna os orfanatos como um todo, mas ainda com o controle do backend.
+
+Criamos uma view separada para as imagens e usamos para preencher o campo image na view de orphanage.
+
+Para habilitar o path das imagens foi preciso adicionar no express o diretorio uploads. (linha 14 do server.ts)
