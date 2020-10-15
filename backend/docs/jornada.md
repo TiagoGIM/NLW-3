@@ -278,3 +278,13 @@ criamos a view de orfanato com dois tipos de render:
 Criamos uma view separada para as imagens e usamos para preencher o campo image na view de orphanage.
 
 Para habilitar o path das imagens foi preciso adicionar no express o diretorio uploads. (linha 14 do server.ts)
+
+## lidando com excessões
+
+```
+$ yarn add express-async-error
+```
+
+criar pasta erros e nela criar um file com um errorHandler settings.
+Adicionar no server o handlers. Importando e criando um "Use"
+
