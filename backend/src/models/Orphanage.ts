@@ -1,5 +1,7 @@
 
-import {Column,Entity , PrimaryGeneratedColumn } from 'typeorm';
+import {Column,Entity , PrimaryGeneratedColumn, OneToMany,JoinColumn } from 'typeorm';
+import { imagesHome1602782315496 } from '../database/migrations/1602782315496-images_home';
+import Image from './image';
 
 @Entity('orphanages')
 export default class Orphanage{
@@ -19,4 +21,12 @@ export default class Orphanage{
   instructions:string;
   @Column()  
   open_weekends:boolean;
+
+  //A relação entre eles é em qual parametro de image? orphanage
+  @OneToMany(() => Image, image => image.orphanage, {
+    //quando um orfanato for criado ou atualizado ele da um Join ou sea, atualiza as images.
+    cascade :['insert','update']
+  })
+  @JoinColumn({name:'orphanage_id'})
+  images :Image[];
 }

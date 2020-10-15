@@ -1,4 +1,6 @@
 exemplos/
 web_app/node_modules/
 backend/node_modules/
-database/
+backend/database/
+backend/src/database/database.sqlite
+backend/uploads

@@ -1,5 +1,5 @@
 # Dia 2 - Backend
-
+Criação de uma API para alimentar o cliente.
 ## Primeiros passos
 Criar o diretorio raiz e iniciar o yarn project ou npm project.
 ```
@@ -7,14 +7,13 @@ $ yarn init -y
 $ yarn add express
 $ yarn add @type/express -D
 ```
-Iniciado o projeto já instalamos o pacote basico. express e o modulo type para ajudar com o debug
+Iniciado o projeto já instalamos o pacote basico. express e o modulo @type para ajudar com o debug
 
 express facilita o sistema de requisição e reposta.
 
 Em seguida construir a árvore de diretórios
 
 ├─ backend
-
 ├─── src
 
 Primeiro file é o server.ts.
@@ -211,5 +210,61 @@ Model - representação da tabela no banco
 Views - como as coisas sao disponibilizadas
 Controles - a logica das rotas
 
-Criei o file rotas e a pasta com os controllers para conter a logica das rotas criadas até então.
-Para cada controller file é necessário importar os metodos request e response do express.
+Criei o file rotas e a pasta com os controllers para conter a lógica das rotas criadas até então.
+Para usar o file controller é necessário importar os metodos request e response.
+
+Escrita e consulta no db por rotas funcionando como esperado. 
+Faltou um "await" e minha resposta tava voltando vazia, resolvido.
+
+
+## Upload de imagens
+
+- Criar tabela que conterá o endereço das imagens upadas.
+- Criar diretório que hospedará as imagens.
+### tabela linkada
+```
+$ yarn typeorm migration:create -n images_home
+```
+Como essa será uma tabela linkada e a relação é 1:N então precisamos setar `foreignKeys`:
+```
+      foreignKeys:[
+        {
+          name:"ImageOrphanage",
+          columnNames:['orphanage_id'],
+          referencedTableName:'orphanages',
+          referencedColumnNames:['id'],
+          onUpdate:'CASCADE',
+          onDelete:'CASCADE'
+        },
+      ],
+```
+onUpdate e onDelete setados em "cascade" irá automatizar o processo de forma a que asimagens finquem linkadas a tabela de orfanatos mesmo que o id do orfanato seja alterado.
+
+### multer para lidar com o upload de imagens
+
+- instalar o multer
+- criar um arquivo de configuiração 'uploads.ts' na pasta src/config
+- criar diretorio para salvar as imagens localmente
+
+
+```
+$ yarn add multer
+```
+
+criamos os diretorios e arquivos relacionados e atualizamos o post pra receber uploads.
+E seguimos as orientações do video sem ter nenhum problema.
+
+Para testar se funcionou usei outro tipo de curl  mult-part-form, o json não lida com imagens. usei o insominia.
+Deu tudo certo, imagem upada na pasta.
+
+### cadastro da imagem no db.
+Primeiramente criamos o model da imagem em src/models
+```
+$ touch image.ts
+```
+Criamos as relações entre os dois modelos usando os decoradores
+ @JoinColumn, @ManytoOne @OnetoMany
+
+E colocamos as infos la dentro.
+
+Editamos o controler conforme o video e também não teve nenhum problema.
