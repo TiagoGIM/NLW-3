@@ -306,5 +306,4 @@ Tive um atraso gigantesco porque estava usando a ferramenta errada. Então dava 
 - CERTA express-async-errors
 - ERRADA yarn add express-async-error
 
-
-
+por ultimo instalamos o cors.

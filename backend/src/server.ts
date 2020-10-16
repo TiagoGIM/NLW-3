@@ -1,5 +1,6 @@
 import express from 'express';
-import 'express-async-errors'
+import 'express-async-errors';
+import cors from 'cors';
 import './database/connection';
 //o express precisa de um midware pra acessar o path
 import path from 'path';
@@ -8,7 +9,8 @@ import routes from './routes'
 import errorHandler from './errors/handlers';
 
 const app = express();
-
+//
+app.use(cors());
 //habilitando a leitura de json no request
 app.use(express.json());
 // agora todas as rotas ficaram separadas neste arquivo.
