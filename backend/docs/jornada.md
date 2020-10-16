@@ -282,7 +282,7 @@ Para habilitar o path das imagens foi preciso adicionar no express o diretorio u
 ## lidando com excessões
 
 ```
-$ yarn add express-async-error
+$ yarn add express-async-errors
 ```
 
 criar pasta erros e nela criar um file com um errorHandler settings.
@@ -300,5 +300,11 @@ tambem criamos um schema usando o Yup.
 usamos o metodo validate() e o abortEarly para retornar todos os campos com erro.
 
 em seguida editar o handler.ts para usar o yup e enviar o error de validação para o cliente.
+
+Tive um atraso gigantesco porque estava usando a ferramenta errada. Então dava erro na promisse async. 
+
+- CERTA express-async-errors
+- ERRADA yarn add express-async-error
+
 
 

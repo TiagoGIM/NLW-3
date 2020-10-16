@@ -9,17 +9,16 @@ interface ValidationErrors {
 }
 
 const errorHandler: ErrorRequestHandler = (error, requeste, response, next) => {
-    console.error(error); 
     if (error instanceof ValidationError){
-        let erros:ValidationErrors = {};
+        let errors: ValidationErrors = {};
         //inner é onde estão os todos os erros, este for vai percorrer cada error e deixar mais amigavel para o cliente.
-        error.inner.forEach(err=>{
-            erros[error.path] = err.errors;
+        error.inner.forEach(err => {
+            errors[err.path] = err.errors;            
         });
         //400 badrequest
-        return response.status(400).json({message:'Validation fails',erros})
+        return response.status(400).json({message:'Validation fails',errors})
     }
-
+    console.error(error)
     return response.status(500).json({message : 'Internal server error'})
 };
 export default errorHandler;
