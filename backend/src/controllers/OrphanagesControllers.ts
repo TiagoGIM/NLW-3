@@ -3,6 +3,8 @@ import {Request,Response} from 'express'
 
 import Orphanage from '../models/Orphanage';
 import orphanageView from '../views/orphanages_views';
+// import pra validação
+import * as Yup from 'yup';  //* as    importar tudo, ele não tem um import all por defaut
 
 export default{
 
@@ -44,11 +46,11 @@ export default{
     const reqImage = req.files as Express.Multer.File[];
     // percorre o array de images e retorna um objeto com o path
     const images = reqImage.map(image => {
-      return {path :image.filename}
-    })
-
-      //instancia params como um orfanato
-    const orphanage = orphanageRepository.create({
+      return {
+        path :image.filename
+      }
+    });
+    const data = {
       name,
       opening_hours,
       latitude,
@@ -57,9 +59,31 @@ export default{
       instructions,
       open_weekends,
       images
-    });
+    }
+//descreve quais campos são brigatorios pra o create.
+    const schema = Yup.object().shape(
+      {
+        name:Yup.string().required(),
+        opening_hours:Yup.string().required(),
+        latitude:Yup.number().required(),
+        longetude:Yup.number().required(),
+        about:Yup.string().required().max(300),
+        instructions:Yup.string().required(),
+        open_weekends:Yup.boolean().required(),
+        images:Yup.array(Yup.object().shape(
+          {
+            path:Yup.string().required()
+          }
+        ))
+      });
+      await schema.validate(data,{
+        abortEarly:false,
+      }); 
+
+      //instancia params como um orfanato
+    const orphanage = orphanageRepository.create(data);
     //como escrever no banco demora, então deixamos em await
-      await orphanageRepository.save(orphanage);
+    await orphanageRepository.save(orphanage);
     // ao criar alto o retorno 201 indica isso ao client
     return resp.status(201).json(orphanage);     
   }

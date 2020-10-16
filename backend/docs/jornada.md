@@ -288,3 +288,17 @@ $ yarn add express-async-error
 criar pasta erros e nela criar um file com um errorHandler settings.
 Adicionar no server o handlers. Importando e criando um "Use"
 
+##  validação dos dados
+
+Usando o modulo yup
+```
+$ yarn add yup
+```
+Em controllers criar um objeto com todos os dados que precisam ser recebidos e validados para o create.
+tambem criamos um schema usando o Yup.
+
+usamos o metodo validate() e o abortEarly para retornar todos os campos com erro.
+
+em seguida editar o handler.ts para usar o yup e enviar o error de validação para o cliente.
+
+
