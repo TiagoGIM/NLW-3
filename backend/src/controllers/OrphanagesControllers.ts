@@ -1,6 +1,5 @@
 import { getRepository } from 'typeorm';
 import {Request,Response} from 'express'
-
 import Orphanage from '../models/Orphanage';
 import orphanageView from '../views/orphanages_views';
 // import pra validação
@@ -76,10 +75,9 @@ export default{
           }
         ))
       });
-      await schema.validate(data,{
-        abortEarly:false,
-      }); 
-
+    await schema.validate(data,{
+      abortEarly:false,
+    });
       //instancia params como um orfanato
     const orphanage = orphanageRepository.create(data);
     //como escrever no banco demora, então deixamos em await

@@ -1,5 +1,5 @@
 import express from 'express';
-import 'express-async-error'
+import  'express-async-error';
 import './database/connection';
 //o express precisa de um midware pra acessar o path
 import path from 'path';
