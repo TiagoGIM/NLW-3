@@ -134,5 +134,29 @@ depois de refatorar os arquivos que continham o sidebar antigo, fui dado a opç�
 
 ## conectando cliente e API.  (back e front)
 
+Já vamos começar instalando a lib. axios.
+$ yarn add axios
+
+Uma das vantages dessa biblioteca é o fato dela encurta a url.  localhost:port é o '/' e pronto   =D
+
+Criamos a pasta services e dentro dela a configuração da comonicação com a API.   api.ts
+
+Basicamente é isso =D.   
+
+## consumindo a api.
+
+Agora vamos deixar os elementos das páginas dinamicos de acordo com os dados da api.
+
+usando o UseState e o UseEffects vamos fazer um hook e salvar os valores ou estados das variaveis da api.
+O react nao guarda valores como o js tradicional, precisamos desses "estados" para ser mais eficiente.
+Sempre que precisar alterar uma variavel que sera usada pelo componente é ideal usar estados.
+
+const [array_de_estados, função_que_permite_editar_o_array] = userState()
+exemplo: função_que_permite_editar_o_array([arry_atualizado]) 
 
 
+criamos o estado e usamos a função map para percorrer o hook e criar os componentes markers.
+
+testei criar outros orfanatos e o render funcionou tranquilo.
+
+parei no tempo 00:47 do video. (metade)
