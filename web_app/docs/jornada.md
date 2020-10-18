@@ -103,5 +103,36 @@ para evitar recarregar toda a pag
 
 para evitar avisos chatos comenta a linha anterior com //eslint-disable-next-line
 
+# Dia 3 integração Back e Front.
+
+## Página de mapas
+Começamos implementando a adição de marcadores ao mapa, usando as ferramentas do leaflet-react e leaflet.
+Trabalharemos na tela `OrphanageMaps.tsx`.
+### usando marcadores de mapas
+importar a classe que vai cuidar do marcador Marker, que será o nosso tag componente <Marker/>.
+Ele tem um atributo "position" que é as coordenadas onde ele aparecerá. Funcionou tranquilo porém não apareceu o pin (icone de localização).
+Para usar icones personalizados teremos que usar o modulo leaflete e criar um objeto para carregar o incone. Com isso basta customizar basta passar o atributo icon ainda no Marker.
+
+para inserir a descrição no local do mapa, adicionamos ao marcador uma tag/componente PopUp, do proprio leafleat-react. A estilização desse box foi feita por css.
+
+### css do icon
+
+Não funcionou ainda. =D
+
+## Implementação de navegação entre telas
+As páginas novas foram baixadas do curso, apenas coloquei nas pastas do client e fiz a implementação das rotas.
+- Importar as rotas no topo assim como as que ja existem.
+- Descrever as rotas
+- Alterar os liks nos botões criados.
+## abstraindo componentes
+
+O primeiro componente criado foi a sidebar,uma função que exporta um html que usa seu proprio css, muito legal!
+separamos tudo em pastas nos respectivos diretorios.  src/style/components e src/componets. 
+
+depois de refatorar os arquivos que continham o sidebar antigo, fui dado a opção de fazer um bodieplate do 
+"Icone" do mapa, criamos uma pasta "utils" para deixar esse trecho de codigo que se repete, não é um coponente pois não tem html...
+
+## conectando cliente e API.  (back e front)
+
 
 

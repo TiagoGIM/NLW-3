@@ -7,3 +7,6 @@ backend/uploads
 .env
 backend/.env
 web_app/.env
+.vscode/
+/node_modules
+package.json

@@ -1,7 +1,8 @@
 import React from 'react';
 //eslint-disable-next-line
-import { Route } from 'react-router-dom';
+
 import './styles/global.css';
+import 'leaflet/dist/leaflet.css'
 
 import Routes from './routes'
 

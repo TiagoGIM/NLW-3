@@ -187,7 +187,7 @@ Criamos a rota /orfanages com o metodo post e nela vamos permitir que a requisi�
 
 - descrevemos todos os params que chegou no body para usar no repositorio "orphanage".
 - usamos o pattern "getRepository" do tyeporm, que é quem lida com o db.
-- editamos o `connection.t` para ele entender nosso model.(passamos a rota da entities)
+- editamos o `connection.ts` para ele entender nosso model.(passamos a rota da entities)
 - importamos e instanciamos o model como um diretório, para assim ele ter os metodos do db.
 - criamos o repositorio "orphanage" e salvamos no db(usamos async await).
 
@@ -306,4 +306,6 @@ Tive um atraso gigantesco porque estava usando a ferramenta errada. Então dava 
 - CERTA express-async-errors
 - ERRADA yarn add express-async-error
 
-por ultimo instalamos o cors.
+por ultimo instalamos o cors e chamamos no server.ts
+
+# Dia 3 - Integração back e front.
