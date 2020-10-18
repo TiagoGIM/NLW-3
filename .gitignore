@@ -10,3 +10,4 @@ web_app/.env
 .vscode/
 /node_modules
 package.json
+yarn.lock

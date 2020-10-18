@@ -35,3 +35,19 @@ Desenvolvimento do Servidor usando Nodejs.
  - Decorators
  - MVC
  - upload de images
+
+ ## Dia 3
+Conectando a API com o Cliente.
+
+ ### Ferramentas usadas
+
+- axios
+- hooks
+- useEffect
+- useState
+
+ ### Conhecimentos explorados
+
+ - conexão de api com cliente.
+ - conceito de hook.
+ - estado de variaveis react.

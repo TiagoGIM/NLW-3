@@ -309,3 +309,8 @@ Tive um atraso gigantesco porque estava usando a ferramenta errada. Então dava 
 por ultimo instalamos o cors e chamamos no server.ts
 
 # Dia 3 - Integração back e front.
+
+começamos deletando tudo do db.
+atenção crianças, não façam isso em casa!
+DELETE FROM orphanages;
+DELETE FROM images;
