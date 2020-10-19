@@ -37,7 +37,7 @@ export default{
       longetude,
       about,
       instructions,
-      open_weekends,
+      open_weekends
       } = req.body;
       
     //cria repositorio com metodos de de (create, save..)
@@ -57,7 +57,7 @@ export default{
       longetude,
       about,
       instructions,
-      open_weekends,
+      open_weekends: open_weekends === true,
       images
     }
 //descreve quais campos são brigatorios pra o create.

@@ -5,7 +5,7 @@ export default {
 	render(img: Image){
 		return {
             id: img.id,
-            url : `${process.env.API_ENDPOINT}/uploads/${img.path}`,
+            url : `http://${process.env.API_ENDPOINT}/uploads/${img.path}`,
 		};
 	},
 	renderMany(imgs: Image[]){

@@ -145,18 +145,54 @@ Basicamente é isso =D.
 
 ## consumindo a api.
 
-Agora vamos deixar os elementos das páginas dinamicos de acordo com os dados da api.
 
+Agora vamos deixar os elementos das páginas dinamicos de acordo com os dados da api.
+### começamos na tela do mapa.
 usando o UseState e o UseEffects vamos fazer um hook e salvar os valores ou estados das variaveis da api.
 O react nao guarda valores como o js tradicional, precisamos desses "estados" para ser mais eficiente.
 Sempre que precisar alterar uma variavel que sera usada pelo componente é ideal usar estados.
 
+```
 const [array_de_estados, função_que_permite_editar_o_array] = userState()
 exemplo: função_que_permite_editar_o_array([arry_atualizado]) 
-
+```
 
 criamos o estado e usamos a função map para percorrer o hook e criar os componentes markers.
 
 testei criar outros orfanatos e o render funcionou tranquilo.
 
 parei no tempo 00:47 do video. (metade)
+
+### carregando pagina de orfanato.(usei o typora pra documentar)
+
+https://typora.io/
+
+requisição por ID na api funcionando, porém os dados estão vindo duplicados, como se tivesse alguma estrutura de repetição.
+Até então parece que a Useeffects é chamada sempre que o [] (ultimo parametro da função) é alterado. no caso criamos o `paramns.id` pra isso.
+
+Com a chamada funcionando vamos configurar a interface da imagem para corresponder com a view da api. Ou seja um array de imagens com dois parametros.
+
+existem duas formas de setar a interface com um array
+
+images : {
+  params:tipo,
+}[]
+
+ou 
+images : Array<{
+  url : string,
+}>
+
+Tive um problema com a exibição das imagens na pagina, minha backend/src/view da api não adiconava o "Http://"
+na URL o que gerou erro de "url schema". Resolvi apenas editando a view no backend para funcionar corretamente.
+
+Para usar o if dentro do html fica assim:
+a condição pode ser uma variavel, o '? abre o 'if' e o ':' abre o 'else'.
+
+{ 'condição' ? "if_do" : "else_do" }
+
+ainda não tratei a questão do boolean então vai ser sempre else.
+
+adicionamos a funcionalidade de ver no google maps. bem simples usando uma new page pra buscar no prorio google maps a nossa localização e do orfanato.
+
+em seguida criamos um novo state pra verificar qual imagem esta selecionada no "carrocel" de imagens.

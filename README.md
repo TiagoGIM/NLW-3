@@ -45,6 +45,7 @@ Conectando a API com o Cliente.
 - hooks
 - useEffect
 - useState
+- useparams
 
  ### Conhecimentos explorados
 
