@@ -196,3 +196,38 @@ ainda não tratei a questão do boolean então vai ser sempre else.
 adicionamos a funcionalidade de ver no google maps. bem simples usando uma new page pra buscar no prorio google maps a nossa localização e do orfanato.
 
 em seguida criamos um novo state pra verificar qual imagem esta selecionada no "carrocel" de imagens.
+
+## Criando orphanatos (POST)
+
+- Criar a função que pega a coordenada clicada no map.(handleMapClick)
+- Adiconar o atributo onClick ao <Map>
+- criar um useState pra posição.
+
+Vamos criar varios states para cada campo do formulário, porque? sei lá.
+
+input e text area criados.
+funcão onSubmit= HandleSubmit criada pra impedir que envia automaticamente.
+
+criamos a ultima variavel state e setamos ela como bolean para o botão de finais de semana.
+
+editamos o botao de upload image e transformamos em um tag <label  htmlfor="id do input"  >
+que aponta para um <input id="id do input ">
+
+tive um bug pra esconder esse emput, que não sei como foin resolvido, tentei de tudo, depois ele so sumiu.
+agora que temos a opção deupar fotos, vamos lidar com os files.
+Criamos a função "handlerImage". 
+
+As mesmas imagens enviadas pra api, serão usadas pro preUpload da criação do orfanato. Como isso?
+Foram criadas algumas funções que até ja achei um bug que não permite voce adicionar mais imagens, ele sobre escreve.
+
+Depois eu volto aqui e comento como foi feito e como resolvi o bug.
+
+Em tese agora temos todos os campos do forms pronto para o submite, porém ainda precisamos criar o forms de acordo com o suportado pela API.
+
+para isso vamos usar o FormData()
+
+
+
+
+
+

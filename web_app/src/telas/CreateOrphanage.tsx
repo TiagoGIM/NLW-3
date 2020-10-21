@@ -73,9 +73,6 @@ export default function CreateOrphanage() {
 
   }
 
-  //imagens storage
-
-
   return (
     <div id="page-create-orphanage">
       <Sidebar />
