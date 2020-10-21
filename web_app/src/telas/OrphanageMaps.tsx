@@ -14,7 +14,7 @@ interface Orphanage {
   id:number,
   opening_hours:string,
   latitude:number,
-  longetude:number,
+  longitude:number,
   about:string,
   instructions:string,
   open_weekend:string,
@@ -56,8 +56,9 @@ function OrphanageMaps(){
                 </footer>
             </aside>
             <Map
-                center={[-23.70,-46.55]}
-                zoom={15}
+                
+                center={[-23.5436968,-46.6466107]}
+                zoom={13}
                 style={{width : '100%', height:'100%' }}
             >
                 {/*<TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>*/}
@@ -66,7 +67,7 @@ function OrphanageMaps(){
                   return(
                   <Marker
                     icon = {mapIcon}
-                    position = {[orphanage.latitude,orphanage.longetude]}
+                    position = {[orphanage.latitude,orphanage.longitude]}
                     key = {orphanage.id}
                     >
                     <Popup closeButton = {false} minWidth={240} maxWidth={240} className="map-popup">
@@ -80,7 +81,7 @@ function OrphanageMaps(){
                 })};
             </Map>
 
-            <Link to="/orphanages/create" className="creat-home">
+            <Link to="orphanages/create" className="creat-home">
                 <FiPlus size={32} color = "#fff" />
             </Link>
         </div>

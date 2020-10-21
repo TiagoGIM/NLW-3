@@ -15,7 +15,7 @@ interface Orphanage {
   name:string,
   opening_hours:string,
   latitude:number,
-  longetude:number,
+  longitude:number,
   about:string,
   instructions:string,
   open_weekend:string,
@@ -81,7 +81,7 @@ if (!orphanage){
 
             <div className="map-container">
               <Map 
-                center={[-27.2092052,-49.6401092]} 
+                center={[orphanage.latitude,orphanage.longitude]} 
                 zoom={16} 
                 style={{ width: '100%', height: 280 }}
                 dragging={false}
@@ -93,14 +93,14 @@ if (!orphanage){
                 <TileLayer 
                   url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
-                <Marker interactive={false} icon={mapIcon} position={[-27.2092052,-49.6401092]} />
+                <Marker interactive={false} icon={mapIcon} position={[orphanage.latitude,orphanage.longitude]} />
               </Map>
 
               <footer>
                 <a 
                 target = "_blank"
                 rel = "noopener noreferrer"
-                href={`https://www.google.com/maps/dir/?api=1&destination=${orphanage.latitude},${orphanage.longetude}`}
+                href={`https://www.google.com/maps/dir/?api=1&destination=${orphanage.latitude},${orphanage.longitude}`}
                 >Ver rotas no Google Maps</a>
               </footer>
             </div>
