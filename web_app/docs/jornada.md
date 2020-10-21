@@ -226,6 +226,10 @@ Em tese agora temos todos os campos do forms pronto para o submite, porém ainda
 
 para isso vamos usar o FormData()
 
+FormData implementado com sucesso, tive alguns bugs devido a uma variavel está escrita errada "longetude" deveria ser longitude, tive que editar praticamente todos os  arquivos tanto no front quanto no back.
+
+encontrei o erro no log network do f12.
+
 
 
 
