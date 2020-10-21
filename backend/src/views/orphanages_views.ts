@@ -9,7 +9,7 @@ export default {
 			name : orphanage.name,
 			opening_hours : orphanage.opening_hours,
 			latitude: orphanage.latitude,
-			longetude: orphanage.longetude,
+			longitude: orphanage.longitude,
 			about:orphanage.about,
 			instructions: orphanage.instructions,
 			open_weekends: orphanage.open_weekends,

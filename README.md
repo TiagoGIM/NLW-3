@@ -46,6 +46,7 @@ Conectando a API com o Cliente.
 - useEffect
 - useState
 - useparams
+- FormData
 
  ### Conhecimentos explorados
 

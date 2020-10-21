@@ -314,3 +314,15 @@ começamos deletando tudo do db.
 atenção crianças, não façam isso em casa!
 DELETE FROM orphanages;
 DELETE FROM images;
+
+A variavel longitude estava escrita "longetude" quando chegou no front tive varios problemas com isso, então tive que corrigir o DB e as views. 
+
+Usei o Beekeeper pra mandar a query que troca os nomes:
+
+ALTER TABLE orphanages 
+RENAME COLUMN longetude TO longitude;
+
+Além de apagar todo o DB pra evitar bugs de normalização.
+
+Todos os Bugs resolvidos no backend até o fim do 3 dia.
+obs.: Por algum motivo o cliente ta fazendo um consulta a uma rota que não existe, ainda preciso tratar isso.
